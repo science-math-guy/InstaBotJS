@@ -35,6 +35,8 @@ const proxies = {
 
   await page.goto('https://instagram.com/');
 
+  console.log('On Instagram.')
+
   await page.waitForSelector('#loginForm > div > div:nth-child(1) > div > label > input');
   if ((await page.$('body > div.RnEpo.Yx5HN > div > div > div > div.mt3GC > button.aOOlW.bIiDR')) !== null) {
       await page.click('body > div.RnEpo.Yx5HN > div > div > div > div.mt3GC > button.aOOlW.bIiDR');
@@ -43,6 +45,8 @@ const proxies = {
   await page.type('#loginForm > div > div:nth-child(2) > div > label > input', process.env.PASSWORD);
   await page.click('#loginForm > div > div:nth-child(3) > button')
   await page.waitForNavigation();
+
+  console.log('Logged in.')
 
   await page.goto('https://www.instagram.com/explore/people/suggested/');
   await page.waitForSelector('#react-root > section > main > div > div.DPiy6.Igw0E.IwRSH.eGOV_._4EzTm.HVWg4 > div > div > div:nth-child(1) > div.Igw0E.rBNOH.YBx95.ybXk5._4EzTm.soMvl');
@@ -55,4 +59,5 @@ const proxies = {
   }
 
   await browser.close();
+  console.log('Done.');
 })();
