@@ -1,0 +1,30 @@
+{
+  "name": "InstaBotJS",
+  "version": "1.0.0",
+  "description": "InstaBotJS is a NodeJS Instagram Bot that allows you to scrape data.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/automated-generation/InstaBotJS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/automated-generation/InstaBotJS/issues"
+  },
+  "homepage": "https://github.com/automated-generation/InstaBotJS#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "puppeteer": "^5.5.0",
+    "puppeteer-extra": "^3.1.15",
+    "puppeteer-extra-plugin-adblocker": "^2.11.9",
+    "puppeteer-extra-plugin-anonymize-ua": "^2.2.14",
+    "puppeteer-extra-plugin-minmax": "^1.1.2",
+    "puppeteer-extra-plugin-stealth": "^2.6.5"
+  }
+}
