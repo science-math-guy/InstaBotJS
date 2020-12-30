@@ -14,11 +14,13 @@ puppeteer.use(MinmaxPlugin);
 const AnonymizeuaPlugin = require('puppeteer-extra-plugin-anonymize-ua')();
 puppeteer.use(AnonymizeuaPlugin);
 
+
 const proxies = {
   'useragent1': 'http://user:pass@85.237.57.198:44959',
   'useragent2': 'http://user:pass@116.0.2.94:43379',
   'useragent3': 'http://user:pass@186.86.247.169:39168',
 };
+
 
 (async() => {
   const browser = await puppeteer.launch({
@@ -34,8 +36,9 @@ const proxies = {
   await page.goto('https://instagram.com/');
 
   await page.waitForSelector('#loginForm > div > div:nth-child(1) > div > label > input');
-
-  await page.click('body > div.RnEpo.Yx5HN > div > div > div > div.mt3GC > button.aOOlW.bIiDR')
+  if ((await page.$('body > div.RnEpo.Yx5HN > div > div > div > div.mt3GC > button.aOOlW.bIiDR')) !== null) {
+      await page.click('body > div.RnEpo.Yx5HN > div > div > div > div.mt3GC > button.aOOlW.bIiDR');
+  }
   await page.type('#loginForm > div > div:nth-child(1) > div > label > input', process.env.USERNAME);
   await page.type('#loginForm > div > div:nth-child(2) > div > label > input', process.env.PASSWORD);
   await page.click('#loginForm > div > div:nth-child(3) > button')
