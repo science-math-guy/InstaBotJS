@@ -23,13 +23,12 @@ const proxies = {
   'useragent3': 'http://user:pass@186.86.247.169:39168',
 };
 
-
 (async() => {
 
   console.log('Starting new process...')
 
   const browser = await puppeteer.launch({
-    headless: true,
+    headless: false,
     args: ['--no-sandbox']
   });
   const page = await browser.newPage();
@@ -69,7 +68,7 @@ const proxies = {
 
   // await page.waitForSelector('#react-root > section > main > div > ul > li:nth-child(2) > a > span');
 
-  await browser.close();
+  //await browser.close();
 
   console.log('Done.');
 
