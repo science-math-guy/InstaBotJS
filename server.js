@@ -23,12 +23,18 @@ const proxies = {
   'useragent3': 'http://user:pass@186.86.247.169:39168',
 };
 
+var timeInMss = Date.now()
+console.log(timeInMss);
+
 (async() => {
+
+  var d = new Date();
+  console.log(d.getDate());
 
   console.log('Starting new process...')
 
   const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
     args: ['--no-sandbox']
   });
   const page = await browser.newPage();
@@ -54,6 +60,8 @@ const proxies = {
 
   console.log('Logged in.');
 
+  
+
   await page.goto('https://www.instagram.com/explore/people/suggested/');
   await page.waitForSelector('#react-root > section > main > div > div.DPiy6.Igw0E.IwRSH.eGOV_._4EzTm.HVWg4 > div > div > div:nth-child(1) > div.Igw0E.rBNOH.YBx95.ybXk5._4EzTm.soMvl');
 
@@ -70,12 +78,7 @@ const proxies = {
 
   //await browser.close();
 
-  console.log('Done.');
-
-})();
-
-
-let transporter = nodemailer.createTransport({
+  let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
       user: process.env.EMAIL,
@@ -86,8 +89,8 @@ let transporter = nodemailer.createTransport({
   let mailOptions = {
     from: process.env.EMAIL,
     to: process.env.EMAIL,
-    subject: 'Sending Email using Node.js',
-    text: 'How are u bro ?'
+    subject: 'Process Report',
+    text: 'Process Report'
   };
 
   transporter.sendMail(mailOptions, function(error, info){
@@ -97,3 +100,11 @@ let transporter = nodemailer.createTransport({
       console.log('Email sent: ' + info.response);
     }
   });
+
+  await browser.close();
+
+  console.log('Done.');
+
+})();
+
+
