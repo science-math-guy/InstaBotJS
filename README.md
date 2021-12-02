@@ -1,2 +1,2 @@
 # InstaBotJS
- Instagram Web Automation to save you time and money.
+ InstaBotJS is a NodeJS Bot created to automate the maximum amount of actions on Instagram.
